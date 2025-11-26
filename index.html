@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Личный кабинет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;margin:0;background:#f8f9fa;color:#212529;display:flex;flex-direction:column;align-items:center;padding:20px}
+    .card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);width:100%;max-width:360px;padding:24px;margin-bottom:16px}
+    h2{margin:0 0 12px;font-size:20px}
+    .progress-bar{height:8px;background:#e9ecef;border-radius:4px;overflow:hidden;margin:12px 0}
+    .progress{height:100%;background:#7367f0;width:0%;transition:width .3s}
+    .btn{display:block;width:100%;text-align:center;padding:14px;border-radius:8px;background:#7367f0;color:#fff;text-decoration:none;font-weight:500;margin-top:12px}
+    .gift{color:#7367f0;font-size:14px;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Прогресс подписки</h2>
+    <div class="progress-bar"><div class="progress" id="bar"></div></div>
+    <div id="text">0 / 12 месяцев</div>
+    <div class="gift" id="gift">🎁 Награда появится после 1-го месяца</div>
+  </div>
+
+  <div class="card">
+    <h2>Материалы</h2>
+    <a class="btn" href="#">Уроки</a>
+    <a class="btn" href="#">Домашние задания</a>
+    <a class="btn" href="#">Идеи Reels</a>
+    <a class="btn" href="https://t.me/+AAAAA12345" target="_blank">Общий чат</a>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    Telegram.WebApp.ready();
+    const months = 0; // потом заменим на реальное число
+    document.getElementById('bar').style.width = (months/12*100)+'%';
+    document.getElementById('text').textContent = months+' / 12 месяцев';
+    if(months>=1) document.getElementById('gift').textContent='🎁 Нажмите, чтобы получить награду!';
+  </script>
+</body>
+</html>
